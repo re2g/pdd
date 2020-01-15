@@ -1,0 +1,245 @@
+/* @import url(https://fonts.googleapis.com/css?family=Roboto:400,400italic,500,500italic,700,700italic,900,900italic);*/
+html {
+  font-size: 10px;
+}
+
+body {
+  overflow-y: scroll;
+}
+
+p{
+  font-size: 2rem;
+}
+
+#frmmail {
+  height:900px;
+}
+.outer-container {
+  font-family: "Roboto";
+  font-size: 1.6rem;
+}
+
+.outer-container {
+  padding: 60px;
+}
+
+.step-content {
+  padding-top: 40px 0;
+}
+
+
+.boxlink {
+    cursor: pointer;
+}
+
+.btn-big {
+  /*height: 100px !important;*/
+  font-size: 50px;
+}
+
+.btn-medium {  
+  /*height: 70px !important;*/
+  font-size: 40px;
+}
+
+.btn-sq-lg {
+    /*width: 150px !important;
+    height: 150px !important;*/
+  }
+
+  .btn-sq-xlg {
+    /*width: 200px !important;
+    height: 200px !important;*/
+  }
+  
+  .btn-sq {
+    /*width: 100px !important;
+    height: 100px !important;*/
+    font-size: 10px;
+  }
+  
+  .btn-sq-sm {
+    /*width: 50px !important;
+    height: 50px !important;*/
+    font-size: 10px;
+  }
+  
+  .btn-sq-xs {
+    /*width: 25px !important;
+    height: 25px !important;*/
+    padding:2px;
+  }
+  
+ .pad {
+     padding-left: 100px;
+ }  
+
+ #botones{
+  height:900px;
+ }
+
+ .ui-keyboard {
+    border-radius: 0;
+    left: 0;
+    top: auto;
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+  }
+
+/* CSS PARA VIDEO */
+audio {
+    vertical-align: bottom;
+    width: 10em;
+}
+video {
+    max-width: 100%;
+    vertical-align: top;
+}
+
+/*
+input {
+    border: 1px solid #d9d9d9;
+    border-radius: 1px;
+    font-size: 2em;
+    margin: .2em;
+    width: 30%;
+}
+p,
+.inner {
+    padding: 1em;
+}
+
+label {
+    display: inline-block;
+    width: 8em;
+}
+
+.recordrtc button, .recordrtc select {
+    vertical-align: middle;
+    line-height: 1;
+    padding: 2px 5px;
+    height: auto;
+    font-size: inherit;
+    margin: 0;
+}
+*/
+.containerB { 
+    height: 330px;
+    border: 3px solid green; 
+  }
+
+.alto {
+  height: 100px;
+}
+
+.vertical-center {
+    top: 5px;
+  }
+  
+.recordrtc button {
+    font-size: 2em;
+    font-weight: 900;
+    text-decoration: underline;
+}
+
+
+.recordrtc, .recordrtc .header {
+    display: block;
+    text-align: center;
+    padding-top: 0;
+}
+
+.recordrtc video {
+    width: 100%;
+}
+
+.recordrtc option[disabled] {
+    display: none;
+}
+
+/* FIN CSS PARA VIDEO */
+
+
+
+.inputGroup {
+  background-color: #F0F0F0;
+  display: block;
+  margin: 10px 0;
+  position: relative;
+  text-transform: uppercase;
+}
+
+.inputGroup label {
+  padding: 12px 30px;
+  width: 100%;
+  display: block;
+  text-align: left;
+  color: #3c454c;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+  transition: color 200ms ease-in;
+  overflow: hidden;
+}
+
+.inputGroup label:hover {
+  background-color: #003A58;
+  color: #fff;
+}
+
+.inputGroup label:before {
+  width: 20px;
+  height: 10px;
+  border-radius: 50%;
+  content: '';
+  background-color: #3366FF;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale3d(1, 1, 1);
+  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+  z-index: -1;
+}
+.inputGroup label:after {
+  width: 32px;
+  height: 32px;
+  content: '';
+  border: 2px solid #d1d7dc;
+  background-color: #fff;
+  background-image: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.414 11L4 12.414l5.414 5.414L20.828 6.414 19.414 5l-10 10z' fill='%23fff' fill-rule='nonzero'/%3E%3C/svg%3E ");
+  background-repeat: no-repeat;
+  background-position: 2px 3px;
+  border-radius: 50%;
+  z-index: 2;
+  position: absolute;
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  transition: all 200ms ease-in;
+}
+.inputGroup input:checked ~ label {
+  color: #fff;
+}
+.inputGroup input:checked ~ label:before {
+  transform: translate(-50%, -50%) scale3d(56, 56, 1);
+  opacity: 1;
+}
+.inputGroup input:checked ~ label:after {
+  background-color: #54e0c7;
+  border-color: #54e0c7;
+}
+.inputGroup input {
+  width: 32px;
+  height: 32px;
+  order: 1;
+  z-index: 2;
+  position: absolute;
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  visibility: hidden;
+}

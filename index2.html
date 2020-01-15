@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Construyendo futuro!</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel='stylesheet' href='css/bootstrap.min.css'>
+        <link rel='stylesheet' href='main.css'>
+        <link href="css/all.min.css" rel="stylesheet" type="text/css" />
+        <link rel='stylesheet' href='css/accordion.css'>
+
+        <script src="js/modernizr-2.8.3.min.js"></script>        
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <script src="js/bootstrap.min.js" id="rendered-js"></script>
+
+
+        <!-- LIBRERIAS PARA TECLADO VIRTUAL -->
+        <!-- keyboard widget css & script (required) -->
+        <link href="css/keyboard_basic.css" rel="stylesheet">
+        <script src="js/jquery.keyboard.js"></script>
+        <script src="js/jquery.mousewheel.js"></script>
+        <script src="js/jquery.keyboard.extension-typing.js"></script>
+        <script src="js/jquery.keyboard.extension-autocomplete.js"></script>
+        <script src="js/jquery.keyboard.extension-caret.js"></script>
+
+        <!-- LIBRERIAS PARA SOPORTAR GRABACION DE VIDEO -->
+        <script src="js/RecordRTC.js"></script>
+        <script src="js/gif-recorder.js"></script>
+        <script src="js/getScreenId.js"></script>
+        <script src="js/DetectRTC.js"> </script>
+        <!-- for Edige/FF/Chrome/Opera/etc. getUserMedia support -->
+        <script src="js/adapter-latest.js"></script>
+
+        <!------ Include the above in your HEAD tag ---------->
+        <script>
+            window.console = window.console || function (t) { };
+        </script>
+        <script>
+            if (document.location.search.match(/type=embed/gi)) {
+                window.parent.postMessage("resize", "*");
+            }
+        </script>
+    </head>
+
+    <body translate="no">
+        <form class="form-horizontal" id="formData" name="formData">            
+            <div class="container-fluid">
+                <div id="wizard" class="aiia-wizard" style="display: none;">
+                    <input type="hidden" id="id" name="id">
+                    <!-- <div class="aiia-wizard-step">
+                        <h1>Identificación</h1>
+                        <div class="step-content">
+                            <div class="block">
+                                <div class="col-md-10 col-md-offset-1">
+                                    <p>Digite su documento de identidad</p>
+                                    <div class="form-group">
+                                        <div class="col-md-8 col-md-offset-2">
+                                            <input type="hidden" id="id" name="id">
+                                            <input type="text" aria-haspopup="true" role="textbox"
+                                                class="form-control alignRight ui-keyboard-input ui-widget-content ui-corner-all ui-keyboard-autoaccepted"
+                                                required id="identificacion" name="identificacion" placeholder="Documento de identidad..."><br />
+                                        </div>                                        
+                                        <div class="col-md-4 col-md-offset-4" id="btnConsulta">
+                                            <button type="button" onclick="ConsultarCiudadano()"
+                                                class="btn btn-info btn-lg btn-block btn-big">Consultar</button>
+                                        </div>
+                                        <div id="nomciudadano" style="display: none;">
+                                            <div class="col-md-8 col-md-offset-2">                                         
+                                                <input type="text" aria-haspopup="true" role="textbox"
+                                                        class="form-control alignRight ui-keyboard-input ui-widget-content ui-corner-all ui-keyboard-autoaccepted"
+                                                        required id="nombre" name="nombre" placeholder="Digite su nombre y apellido..."><br />
+                                            </div>  
+                                            <div class="col-md-4 col-md-offset-4">
+                                                <button type="button" onclick="ValidaNombre()"
+                                                            class="btn btn-success btn-lg btn-block btn-big">Continuar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="aiia-wizard-step" id="paso1">
+                        <h1>Ejes programáticos</h1>
+                        <div class="step-content">
+                            <div class="col-md-10 col-md-offset-1">
+                                <p class="parrafo">
+                                    Seleccione el eje sobre el cual quiere dar su aporte...
+                                </p>
+                                <div class="row">
+                                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" role="tab" id="headingOne">
+                                                <h4 class="panel-title">
+                                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                                                        href="#collapseOne" aria-expanded="true"
+                                                        aria-controls="collapseOne">
+                                                        Arauca con trabajo
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseOne" class="panel-collapse collapse" role="tabpanel"
+                                                aria-labelledby="headingOne">
+                                                <div class="panel-body">     
+                                                    <div class="inputGroup">
+                                                        <input type="radio" class="opcejes" id="eje1opc1" onclick="Proximo()"
+                                                            name="ejes" value="Desarrollo empresarial y empleo">
+                                                        <label for="eje1opc1">Desarrollo empresarial y
+                                                            empleo</label>
+                                                    </div>
+                                                    <div class="inputGroup">
+                                                        <input type="radio" class="opcejes" id="eje1opc2" onclick="Proximo()"
+                                                            name="ejes" value="Cultura y Turismo">
+                                                        <label for="eje1opc2">Cultura y Turismo</label>
+                                                    </div>  
+                                                    <div class="inputGroup">                                             
+                                                        <input type="radio" class="opcejes" id="eje1opc3" onclick="Proximo()"
+                                                                name="ejes"
+                                                                value="Tecnologías de información y comunicaciones">
+                                                        <label for="eje1opc3">Tecnologías de información y
+                                                                comunicaciones</label>
+                                                    </div>
+                                                </div>                                                   
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" role="tab" id="headingTwo">
+                                                <h4 class="panel-title">
+                                                    <a class="collapsed" role="button" data-toggle="collapse"
+                                                        data-parent="#accordion" href="#collapseTwo"
+                                                        aria-expanded="false" aria-controls="collapseTwo">
+                                                        Arauca con desarrollo rural y sostenible
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel"
+                                                aria-labelledby="headingTwo">
+                                                <div class="panel-body">
+                                                    <div class="inputGroup">
+                                                        <input type="radio" class="opcejes" id="eje2opc1" onclick="Proximo()"
+                                                            name="ejes" value="Desarrollo Agropecuario">
+                                                        <label for="eje2opc1">Desarrollo Agropecuario</label>
+                                                    </div>
+                                                    <div class="inputGroup">
+                                                        <input type="radio" class="opcejes" id="eje2opc2" onclick="Proximo()"
+                                                            name="ejes"
+                                                            value="Medio ambiente, cambio climático y recursos naturales">
+                                                        <label for="eje2opc2">Medio ambiente, cambio climático y
+                                                            recursos naturales</label>
+                                                    </div>
+                                                    <div class="inputGroup">
+                                                        <input type="radio" class="opcejes" id="eje2opc3" onclick="Proximo()"
+                                                            name="ejes" value="Gestión de riesgo de desastres">
+                                                        <label for="eje2opc3">Gestión de riesgo de desastres</label>
+                                                    </div>                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" role="tab" id="headingThree">
+                                                <h4 class="panel-title">
+                                                    <a class="collapsed" role="button" data-toggle="collapse"
+                                                        data-parent="#accordion" href="#collapseThree"
+                                                        aria-expanded="false" aria-controls="collapseThree">
+                                                        Arauca con salud confiable
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel"
+                                                aria-labelledby="headingThree">
+                                                <div class="panel-body inputGroup">
+                                                    <div class="inputGroup">
+                                                        <input type="radio" class="opcejes" id="eje3opc1" onclick="Proximo()"
+                                                                name="ejes" value="Salud en el Departamento de Arauca">
+                                                        <label for="eje3opc1">Salud en el Departamento de
+                                                                Arauca</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" role="tab" id="headingFour">
+                                                <h4 class="panel-title">
+                                                    <a class="collapsed" role="button" data-toggle="collapse"
+                                                        data-parent="#accordion" href="#collapseFour"
+                                                        aria-expanded="false" aria-controls="collapseFour">
+                                                        Arauca digna y social
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseFour" class="panel-collapse collapse" role="tabpanel"
+                                                aria-labelledby="headingFour">
+                                                <div class="panel-body">
+                                                    <div class="inputGroup">
+                                                        <input type="radio" class="opcejes" id="eje4opc1" onclick="Proximo()"
+                                                                name="ejes" value="Educación">
+                                                        <label for="eje4opc1">Educación</label>
+                                                    </div>
+                                                    <div class="inputGroup">
+                                                        <input type="radio" class="opcejes" id="eje4opc2" onclick="Proximo()"
+                                                                name="ejes"
+                                                                value="Deportes, recreación y actividad física">
+                                                        <label for="eje4opc2">Deportes, recreación y actividad
+                                                                física</label>
+                                                    </div>
+                                                    <div class="inputGroup">
+                                                        <input type="radio" class="opcejes" id="eje4opc3" onclick="Proximo()"
+                                                                name="ejes" value="Población vulnerable">
+                                                        <label for="eje4opc3">Población vulnerable</label>
+                                                    </div>
+                                                    <div class="inputGroup">
+                                                            <input type="radio" class="opcejes" id="eje4opc4" onclick="Proximo()"
+                                                                name="ejes" value="Vivienda urbana y rural">
+                                                            <label for="eje4opc4">Vivienda urbana y rural</label>
+                                                    </div>                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" role="tab" id="headingFive">
+                                                <h4 class="panel-title">
+                                                    <a class="collapsed" role="button" data-toggle="collapse"
+                                                        data-parent="#accordion" href="#collapseFive"
+                                                        aria-expanded="false" aria-controls="collapseFive">
+                                                        Arauca con infraestructura, servicios públicos y vías para el
+                                                        desarrollo
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseFive" class="panel-collapse collapse" role="tabpanel"
+                                                aria-labelledby="headingFive">
+                                                <div class="panel-body">
+                                                    <div class="inputGroup">
+                                                        <input type="radio" class="opcejes" id="eje5opc1" onclick="Proximo()"
+                                                                name="ejes" value="Infraestructura vial y transporte">
+                                                        <label for="eje5opc1">Infraestructura vial y
+                                                                transporte</label>
+                                                    </div>
+                                                    <div class="inputGroup">
+                                                        <input type="radio" class="opcejes" id="eje5opc2" onclick="Proximo()"
+                                                                name="ejes" value="Agua potable y saneamiento básico">
+                                                        <label for="eje5opc2">Agua potable y saneamiento
+                                                                básico</label>
+                                                    </div>
+                                                    <div class="inputGroup">
+                                                        <input type="radio" class="opcejes" id="eje5opc3" onclick="Proximo()"
+                                                                name="ejes"
+                                                                value="Energía y fuentes no convencionales de energías renovables">
+                                                        <label for="eje5opc3">Energía y fuentes no convencionales de
+                                                                energías renovables</label>
+                                                    </div>
+                                                    <div class="inputGroup">
+                                                        <input type="radio" class="opcejes" id="eje5opc4" onclick="Proximo()"
+                                                                name="ejes" value="Desarrollo urbano">
+                                                        <label for="eje5opc4">Desarrollo urbano</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" role="tab" id="headingSix">
+                                                <h4 class="panel-title">
+                                                    <a class="collapsed" role="button" data-toggle="collapse"
+                                                        data-parent="#accordion" href="#collapseSix"
+                                                        aria-expanded="false" aria-controls="collapseSix">
+                                                        Arauca una frontera segura y en paz
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseSix" class="panel-collapse collapse" role="tabpanel"
+                                                aria-labelledby="headingSix">
+                                                <div class="panel-body inputGroup">
+                                                    <div class="inputGroup">
+                                                        <input type="radio" class="opcejes" id="eje6opc1" onclick="Proximo()"
+                                                                name="ejes" value="Fronteras e Integración Ciudadana">
+                                                        <label for="eje6opc1">Fronteras e Integración
+                                                                Ciudadana</label>
+                                                    </div>
+                                                    <div class="inputGroup">
+                                                        <input type="radio" class="opcejes" id="eje6opc2" onclick="Proximo()"
+                                                                name="ejes" value="Seguridad y convivencia ciudadana.">
+                                                        <label for="eje6opc2">Seguridad y convivencia
+                                                                ciudadana.</label>
+                                                    </div>                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" role="tab" id="headingSeven">
+                                                <h4 class="panel-title">
+                                                    <a class="collapsed" role="button" data-toggle="collapse"
+                                                        data-parent="#accordion" href="#collapseSeven"
+                                                        aria-expanded="false" aria-controls="collapseSeven">
+                                                        Arauca con buen gobierno
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseSeven" class="panel-collapse collapse" role="tabpanel"
+                                                aria-labelledby="headingSeven">
+                                                <div class="panel-body inputGroup">
+                                                    <div class="inputGroup">
+                                                        <input type="radio" class="opcejes" id="eje7opc1" onclick="Proximo()"
+                                                                name="ejes" value="Arauca con buen gobierno">
+                                                        <label for="eje7opc1">Arauca con buen gobierno</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="aiia-wizard-step">
+                        <h1>Su aporte</h1>
+                        <div class="step-content">
+                            <div id="botones">
+                                <div class="col-md-12">
+                                    <p class="parrafo">
+                                        A continuación encontrará dos opciones para ingresar su aporte. Puede escoger
+                                        entre
+                                        digitarlo o grabar un video indicando el problema y la posible solución.
+                                    </p>
+                                </div>
+                                    <div class="col-md-6 text-center">                                                                
+                                        <button type="button" onclick="verForm()" class="btn btn-primary btn-lg botones">                                            
+                                            <i class="far fa-keyboard fa-3x"></i><br />Escribir mi <br />aporte
+                                        </button>
+                                    </div>
+                                    <div class="col-md-6 text-center">
+                                        <button type="button" onclick="verCam()" class="btn btn-info  btn-lg botones">                                            
+                                            <i class="fas fa-video fa-3x"></i><br />
+                                            Grabar <br>video
+                                        </button>
+                                    </div>
+                            </div>
+                            <div class="col-md-12" id="formulario" style="display: none;">
+                                <div class="formulario">
+                                    
+                                    <div class="form-group">
+                                                 
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-2 control-label">Problema:</label>
+                                        <div class="col-sm-10">
+                                            <textarea class="form-control" id="problema" name="problema"
+                                                placeholder="Escriba el problema existente..."></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-2 control-label">Posible solución:</label>
+                                        <div class="col-sm-10">
+                                            <textarea class="form-control" id="solucion" name="solucion"
+                                                placeholder="Plantee su solución a esta problemática..."></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">                                        
+                                        <div class="col-md-12 text-center">
+                                            <button type="button" onclick="GuardarDatosForm()" class="btn btn-success btn-lg-video botones">Guardar</button>
+                                        </div>
+                                        <div class="col-md-12 text-center">
+                                            <button type="button" onclick="verForm()" class="btn btn-info btn-block2 botones">Volver</button>                       
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12" id="videocam" style="display: none;">
+                                <section class="experiment recordrtc">
+                                    <p class="text-left">Haga clic en el botón "Iniciar grabación".</p>
+                                    <h2 class="header">
+                                        <select class="recording-media" style="display: none;">
+                                            <option value="record-video">Video</option>
+                                            <option value="record-audio">Audio</option>
+                                            <option value="record-screen">Screen</option>
+                                        </select>
+
+                                        <select class="media-container-format" style="display: none;">
+                                            <option>WebM</option>
+                                            <option disabled>Mp4</option>
+                                            <option disabled>WAV</option>
+                                            <option disabled>Ogg</option>
+                                            <option>Gif</option>
+                                        </select>
+                                    </h2>                                    
+                                    <div class="form-group col-md-12 text-center">                                           
+                                        <button type="button" class="btn btn-success btn-lg-video">Iniciar<br />grabación</button><br /> 
+                                        <div style="text-align: center;">
+                                            <button id="save-to-disk"  style="display: none;">Save To Disk</button>
+                                            <button id="open-new-tab"  style="display: none;">Open New Tab</button>
+                                            <button id="upload-to-server" class="btn btn-warning btn-lg-video" style="display: none;">Enviar video</button>
+                                            <input type="hidden" id="video" name="video">
+                                        </div>                                                                                           
+                                    </div>
+                                    <div class="form-group col-md-12 text-center">
+                                        <video controls playsinline autoplay muted=false volume=1></video>
+                                    </div>
+                                    <div class="form-group col-md-12 text-center">
+                                        <button type="button" onclick="verCam()" class="btn btn-info btn-block2 botones">Volver</button>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="aiia-wizard-step">
+                        <h1>Gracias</h1>
+                        <div class="step-content">
+                            <div class="col-md-12" id="frmmail">                                
+                                    <h2 class="parrafo2">¡Su aporte ha sido recibido!</h2>
+                                    <div id="OpcionCorreo">
+                                    <h2 class="parrafo2">¿Desea recibir información de su proposición? </h2>
+                                    <!-- <input type="radio" id="si" class="opcejes" onclick="EnviarCorreo()" name="enviarprop" value="SI">
+                                    <label for="SI">SI</label><br/>
+                                    <input type="radio" id="no" class="opcejes" onclick="EnviarCorreo()" name="enviarprop" value="NO">
+                                    <label for="NO">NO</label> -->
+                                    <div class="col-md-6 text-center btnfomulario">                                        
+                                        <button type="button" id="si"  onclick="EnviarCorreo(1)"
+                                            class="btn btn-info btn-lg botones">SI</button>
+                                    </div> 
+                                    <div class="col-md-6 text-center btnfomulario">
+                                        <button type="button" id="no" onclick="EnviarCorreo(2)"
+                                            class="btn btn-primary btn-lg  botones">NO</button>
+                                    </div>   
+                                    
+                                    </div>                                                                       
+                                    <div id="formEnvio" style="display: none;" class="col-md-12 text-center form-horizontal">
+                                        <div class="form-group">
+                                            <label for="email" class="col-sm-2 control-label">Nombre y apellido:</label>
+                                            <div class="col-sm-10">                                         
+                                                <input type="text" aria-haspopup="true" role="textbox"
+                                                        class="form-control alignRight ui-keyboard-input ui-widget-content ui-corner-all ui-keyboard-autoaccepted"
+                                                        required id="nombre" name="nombre" placeholder="Digite su nombre y apellido...">
+                                            </div> 
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="email" class="col-sm-2 control-label">Correo electrónico:</label>
+                                            <div class="col-sm-10">
+                                                    <input type="email" aria-haspopup="true" role="textbox"
+                                                    class="form-control alignRight ui-keyboard-input ui-widget-content ui-corner-all ui-keyboard-autoaccepted"
+                                                    required id="email" name="email" placeholder="Digite su correo electrónico...">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputEmail3" class="col-sm-2 control-label">Número de contacto:</label>
+                                            <div class="col-sm-10">
+                                                <input type="number" aria-haspopup="true" role="textbox"
+                                                    class="form-control alignRight ui-keyboard-input ui-widget-content ui-corner-all ui-keyboard-autoaccepted"
+                                                    required id="telefono" name="telefono" placeholder="Digite su teléfono de contacto...">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                <button type="button" onclick="EnviarCopiaForm()"
+                                                    class="btn btn-success btn-lg-video botones">Enviar</button>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <button type="button" onclick="Final()"
+                                                    class="btn btn-warning btn-block2 botones">Salir</button>
+                                            </div>                                                    
+                                        </div>                                                
+                                    </div>                                      
+                            </div>
+                            <p class="alto">&nbsp;</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </form>
+        <script src="js/wizarddom.js" id="rendered-js"></script>
+        <script src="js/video.js" id="rendered-js"></script>
+        <script>
+            function verForm() {
+                $("#botones").toggle();
+                $("#formulario").toggle();
+                window.scrollTo(0, 0);
+            }
+
+            function verCam() {
+                $("#botones").toggle();
+                $("#videocam").toggle();
+                window.scrollTo(0, 0);
+            }
+
+            function Proximo() {                
+                $('.aiia-wizard-button-next').click();                
+                window.scrollTo(0, 0);
+            }
+
+            function Final() {      
+                console.log('inicio')                       
+                location.href='index.html';
+            }
+
+            function ConsultarCiudadano() {
+                if($("#identificacion").val()=='') {
+                    alert('Debe digitar su documento de identidad!')
+                    return false;
+                } else {
+                    $.get("ciudadano.list.php", { identificacion: $("#identificacion").val() }, function( data ) {                    
+                        console.log('data: ' +data)
+                        if (data==0){
+                            $("#nomciudadano").toggle();
+                            $("#nomciudadano").focus();
+                            $("#btnConsulta").toggle();
+                        } else {
+                            $("#nombre").val(data);                    
+                            Proximo()
+                        }
+                    });                
+                }
+            }
+
+            function EnviarCorreo(opc) {  
+                let opcion = opc;                         
+                if( opcion==1 ) {
+                    $("#formEnvio").css('display','block');
+                    $(".btnfomulario").css('display','none');                    
+                } else {
+                    $("#formEnvio").css('display','none');
+                    location.href='index.html'
+                    //Final()
+                }
+            }
+
+            function EnviarCopiaForm() {
+                if (($("#email").val()=='') && ($("#telefono").val()=='')) {
+                    alert('Debe diligenciar al menos uno de los dos campos, ya sea el correo o el teléfono de contacto.')
+                    return false;
+                } else {
+                    $.post("salvarform.php", $("#formData").serialize(), function( data ) {                                                        
+                        console.log('Guarda email y teléfono');
+                    });
+                    
+                    $.post("PHPMailer/mail.php", $("#formData").serialize(), function( data ) {                                                        
+                        console.log('Envía email');
+                        location.href='index.html'
+                        //Final()
+                    });                 
+                }
+            }
+
+            function ValidaNombre() {
+                if($("#identificacion").val()=='') {
+                    alert('Debe digitar su documento de identidad!')
+                    return false;
+                } else {
+                    if($("#nombre").val()=='') {
+                        alert('Debe digitar su nombre!')
+                        return false;
+                    } else {
+                        Proximo()
+                    }
+                }
+            }
+
+            function GuardarDatosForm() {
+                if($("#problema").val()=='') {
+                    alert('Debe digitar el problema existente!')
+                    return false;
+                } else {                    
+                    if($("#solucion").val()=='') {
+                        alert('Debe digitar su sugerencia para subsanar el problema.')
+                        return false;
+                    } else {
+                        $.post("salvarform.php", $("#formData").serialize(), function( data ) {       
+                            console.log('id form: '+data['id']);                                            
+                            $("#id").val(data['id']);
+                        });                        
+                        Proximo()
+                    }
+                }
+            }
+
+            function GuardarDatosVideo() { 
+                console.log('GuardarDatosVideo')              
+                $.post("salvarform.php", $("#formData").serialize(), function( data ) {
+                    $("#id").val(data['id']);
+                });                        
+                Proximo()
+            }
+        </script>
+    </body>
+
+</html>

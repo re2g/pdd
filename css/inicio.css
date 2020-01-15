@@ -1,0 +1,435 @@
+/*  div {
+  border-style: solid;
+  border-color: rgb(201, 76, 76);
+}   */
+
+body {
+  margin-left: 20px;  
+}
+
+.imgtitulo {
+  padding-bottom: 30px;
+}
+
+.boton {
+  padding-bottom: 20px;
+}
+
+.parrafo {
+  margin-left: 3.125rem;
+}
+
+  
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+  
+  .btn-sq-xlg {
+    width: 15rem !important;
+    height: 15rem !important;
+    font-size: 3.125rem;
+  }  
+
+  .parrafo {
+    font-size: 2rem;
+    color: white;    
+    /* padding-top: 15em; */
+  }
+
+  body {
+    background: #003A58;
+    background-image: url("../img/fondo_1.jpg"); /* fallback */
+    background-image: url("../img/fondo_1.jpg"), linear-gradient(90deg, #003A58 0%, rgba(0,58,89,1) 100%);    
+    background-repeat: repeat-y;
+  }
+
+  .imgtitulo {
+    margin-top: 1.875rem;    
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* Smartphones (landscape) ----------- */
+@media only screen 
+and (min-width : 321px) {
+  .parrafo {
+    font-size: 2rem;
+    color: white;    
+    /* padding-top: 15em; */
+  }
+
+  .btn-sq-xlg {
+    width: 15rem !important;
+    height: 15rem !important;
+    font-size: 3.125rem;
+  }  
+
+  body {
+    background: #003A58;
+    background-image: url("../img/fondo_1.jpg"); /* fallback */
+    background-image: url("../img/fondo_1.jpg"), linear-gradient(90deg, #003A58 0%, rgba(0,58,89,1) 100%);    
+    background-repeat: repeat-y;
+  }
+
+  .imgtitulo {
+    margin-top: 1.875rem;
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+  }
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen 
+and (min-width : 320px) {
+  .parrafo {
+    font-size: 2rem;
+    color: white;    
+    /* padding-top: 15em; */
+  }
+
+  .btn-sq-xlg {
+    width: 15rem !important;
+    height: 15rem !important;
+    font-size: 3.125rem;
+  }  
+
+  .boton {
+    padding-top: 1.25rem;    
+  }
+
+  body {
+    background: #003A58;
+    background-image: url("../img/fondo_1.jpg"); /* fallback */
+    background-image: url("../img/fondo_1.jpg"), linear-gradient(90deg, #003A58 0%, rgba(0,58,89,1) 100%);    
+    background-repeat: repeat-y;
+  }
+
+  .imgtitulo {
+    margin-top: 1.875rem; 
+       
+  }
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) {
+  .parrafo {
+    font-size: 3rem;
+    color: white;    
+    /* padding-top: 15em; */
+  }
+
+  .btn-sq-xlg {
+    width: 15rem !important;
+    height: 15rem !important;
+    font-size: 3.125rem;
+  }  
+
+  body {
+    background: #003A58;
+    background-image: url("../img/fondo_1.jpg"); /* fallback */
+    background-image: url("../img/fondo_1.jpg"), linear-gradient(90deg, #003A58 0%, rgba(0,58,89,1) 100%);    
+    background-repeat: repeat-y;
+  }
+
+  .imgtitulo {
+    margin-top: 1.875rem;  
+      
+  }
+}
+
+/* iPads (landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : landscape) {
+  .parrafo {
+    font-size: 3rem;
+    color: white;    
+    /* padding-top: 15em; */
+  }
+
+  .btn-sq-xlg {
+    width: 15rem !important;
+    height: 15rem !important;
+    font-size: 3.125rem;
+  }  
+
+  body {
+    background: #003A58;
+    background-image: url("../img/fondo_1.jpg"); /* fallback */
+    background-image: url("../img/fondo_1.jpg"), linear-gradient(90deg, #003A58 0%, rgba(0,58,89,1) 100%);    
+    background-repeat: repeat-y;
+  }
+
+  .imgtitulo {
+    margin-top: 1.875rem;  
+      
+  }
+}
+
+/* iPads (portrait) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : portrait) {
+  .parrafo {
+    font-size: 3rem;
+    color: white;    
+    /* padding-top: 15em; */
+  }
+
+  .btn-sq-xlg {
+    width: 15rem !important;
+    height: 15rem !important;
+    font-size: 3.125rem;
+  }  
+
+  .boton {
+    padding-top: 1.25rem;    
+  }
+
+  body {
+    background: #003A58;
+    background-image: url("../img/fondo_1.jpg"); /* fallback */
+    background-image: url("../img/fondo_1.jpg"), linear-gradient(90deg, #003A58 0%, rgba(0,58,89,1) 100%);    
+    background-repeat: repeat-y;
+  }
+
+  .imgtitulo {
+    margin-top: 1.875rem; 
+       
+  }
+}
+
+
+@media only screen 
+and (min-device-width : 360px) 
+and (max-device-width : 640px) 
+and (orientation : portrait) {
+  .parrafo {
+    font-size: 2rem;
+    color: white;    
+    /* padding-top: 15em; */
+  }
+
+  .btn-sq-xlg {
+    width: 15rem !important;
+    height: 15rem !important;
+    font-size: 3.125rem;
+  }  
+
+  body {
+    background: #003A58;
+    background-image: url("../img/fondo_1.jpg"); /* fallback */
+    background-image: url("../img/fondo_1.jpg"), linear-gradient(90deg, #003A58 0%, rgba(0,58,89,1) 100%);    
+    background-repeat: repeat-y;
+  }
+
+  .imgtitulo {
+    margin-top: 1.875rem; 
+       
+  }
+}
+
+/* iPhone 4 ----------- */
+/* @media
+only screen and (-webkit-min-device-pixel-ratio : 1.5),
+only screen and (min-device-pixel-ratio : 1.5) {
+  .parrafo {
+    font-size: 2.1rem;
+    color: white;        
+  }
+
+  .btn-sq-xlg {
+    width: 15rem !important;
+    height: 15rem !important;
+    font-size: 3.125rem;
+  }  
+
+  body {
+    background: #003A58;
+    background-image: url("../img/fondo_1.jpg"); 
+    background-image: url("../img/fondo_1.jpg"), linear-gradient(90deg, #003A58 0%, rgba(0,58,89,1) 100%);    
+    background-repeat: repeat-y;
+  }
+
+  .imgtitulo {
+    margin-top: 1.875rem; 
+       
+  }
+} */
+
+/* Desktops and laptops ----------- */
+@media only screen 
+and (min-width : 1224px) {
+  .btn-sq-xlg {
+    width: 15rem !important;
+    height: 15rem !important;
+    font-size: 3.125rem;
+  }
+
+  .parrafo {
+    font-size: 3rem;
+    color: white;    
+    /* padding-top: 20em; */
+  }
+
+  body {    
+    background: #003A58;
+    background-image: url("../img/fondo_1.jpg"); /* fallback */
+    background-image: url("../img/fondo_1.jpg"), linear-gradient(90deg, #003A58 0%, rgba(0,58,89,1) 100%);    
+    background-repeat: repeat-y;
+  }
+
+  .imgtitulo {
+    margin-top: 1.875rem;    
+    
+  }
+  
+
+}
+
+/* Large screens ----------- */
+@media only screen 
+and (min-width : 1824px) {
+  .btn-sq-xlg {
+    width: 15rem !important;
+    height: 15rem !important;
+    font-size: 3.125rem;
+  }
+
+  .parrafo {
+    font-size: 3rem;
+    color: white;    
+    /* padding-top: 20em; */
+  }
+
+  body {    
+    background: #003A58;
+    background-image: url("../img/fondo_1.jpg"); /* fallback */
+    background-image: url("../img/fondo_1.jpg"), linear-gradient(90deg, #003A58 0%, rgba(0,58,89,1) 100%);    
+    background-repeat: repeat-y;
+  }
+
+  .imgtitulo {
+    margin-top: 1.875rem;    
+    
+  }
+
+
+}
+
+
+/* ----------- iPad Pro ----------- */
+/* Portrait and Landscape */
+@media only screen 
+  and (min-width: 1024px) 
+  and (max-height: 1366px) 
+  and (-webkit-min-device-pixel-ratio: 1.5) {
+
+    .btn-sq-xlg {
+      width: 25rem !important;
+      height: 25rem !important;
+      font-size: 3.125rem;
+    }
+  
+    .parrafo {
+      font-size: 3rem;
+      color: white;    
+      /* padding-top: 20em; */
+    }
+  
+    body {    
+      background: #003A58;
+      background-image: url("../img/fondo_1.jpg"); /* fallback */
+      background-image: url("../img/fondo_1.jpg"), linear-gradient(90deg, #003A58 0%, rgba(0,58,89,1) 100%);    
+      background-repeat: repeat-y;
+    }
+  
+    .imgtitulo {
+      margin-top: 1.875rem;    
+      
+    }
+}
+
+/* Portrait */
+@media only screen 
+  and (min-width: 1024px) 
+  and (max-height: 1366px) 
+  and (orientation: portrait) 
+  and (-webkit-min-device-pixel-ratio: 1.5) {
+
+    .btn-sq-xlg {
+      width: 30rem !important;
+      height: 30rem !important;
+      font-size: 3.125rem;
+    
+    }
+  
+    .parrafo {
+      font-size: 5.3rem;
+      color: white;        
+      text-align: center;
+      width: 100%;
+      float: left;
+      position: relative;
+      left: 25%;
+    }
+  
+    .cleardiv{
+      clear: both;
+      float: left;
+      position: relative;
+      left: 35%;
+    }
+
+    body {    
+      background: #003A58;
+      background-image: url("../img/fondo_1.jpg"); /* fallback */
+      background-image: url("../img/fondo_1.jpg"), linear-gradient(90deg, #003A58 0%, rgba(0,58,89,1) 100%);    
+      background-repeat: repeat-y;
+    }
+  
+    .imgtitulo {
+      margin-top: 5rem;    
+      
+    }
+}
+
+/* Landscape */
+@media only screen 
+  and (max-height: 1366px) 
+  and (min-width: 1024px) 
+  and (orientation: landscape) 
+  and (-webkit-min-device-pixel-ratio: 1.5) {
+    .btn-sq-xlg {
+      width: 25rem !important;
+      height: 25rem !important;
+      font-size: 3.125rem;
+    }
+  
+    .parrafo {
+      font-size: 3.5rem;
+      color: white;    
+      /* padding-top: 20em; */
+    }
+  
+    body {    
+      background: #003A58;
+      background-image: url("../img/fondo_1.jpg"); /* fallback */
+      background-image: url("../img/fondo_1.jpg"), linear-gradient(90deg, #003A58 0%, rgba(0,58,89,1) 100%);    
+      background-repeat: repeat-y;
+    }
+  
+    .imgtitulo {
+      margin-top: 6rem;    
+      
+    }
+
+}

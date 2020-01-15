@@ -1,0 +1,298 @@
+/*  div {
+    border-style: solid;
+    border-color: rgb(201, 76, 76);
+  } 
+ */
+.template_faq {
+    background: #edf3fe none repeat scroll 0 0;
+}
+.panel-group {
+    background: #fff none repeat scroll 0 0;
+    border-radius: 3px;
+    box-shadow: 0 5px 30px 0 rgba(0, 0, 0, 0.04);
+    margin-bottom: 0;
+    padding: 30px;
+}
+
+.container-fluid {
+    margin-top: 2rem;
+}
+
+#accordion {
+    height:900px;
+}
+
+#videocam {
+    height:900px;
+}
+
+#frmmail {
+    height:900px;
+}
+
+#accordion .panel {
+    border: medium none;
+    border-radius: 0;
+    box-shadow: none;
+    margin: 0 0 15px 10px;
+}
+#accordion .panel-heading {
+    border-radius: 30px;
+    padding: 0;
+}
+#accordion .panel-title a {
+    background: #ffb900 none repeat scroll 0 0;
+    border: 1px solid transparent;
+    border-radius: 30px;
+    color: #fff;
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: 12px 20px 12px 50px;
+    position: relative;
+    transition: all 0.3s ease 0s;
+    text-transform: uppercase;
+}
+#accordion .panel-title a.collapsed {
+    background: rgb(209, 231, 248) none repeat scroll 0 0;
+    border: 1px solid #ddd;
+    color: #333;
+}
+#accordion .panel-title a::after, #accordion .panel-title a.collapsed::after {
+    background: #ffb900 none repeat scroll 0 0;
+    border: 1px solid transparent;
+    border-radius: 50%;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.58);
+    color: #fff;
+    content: "*";
+    font-family: fontawesome;
+    font-size: 25px;
+    height: 55px;
+    left: -20px;
+    line-height: 55px;
+    position: absolute;
+    text-align: center;
+    top: -5px;
+    transition: all 0.3s ease 0s;
+    width: 55px;
+}
+#accordion .panel-title a.collapsed::after {
+    background: #fff none repeat scroll 0 0;
+    border: 1px solid #ddd;
+    box-shadow: none;
+    color: #333;
+    content: "*";
+}
+#accordion .panel-body {
+    background: transparent none repeat scroll 0 0;
+    border-top: medium none;
+    padding: 20px 25px 10px 9px;
+    position: relative;
+}
+#accordion .panel-body p {
+    border-left: 1px dashed #8c8c8c;
+    padding-left: 25px;
+}
+
+
+.step-content {
+    margin-top: 1.5rem;
+}
+
+.panel-group {
+    padding-bottom: 2rem;
+}
+
+.parrafo2 {
+    font-size: 2.5rem;
+}
+
+.botones {        
+    margin-top: 1rem;  
+    margin-bottom: 1rem;    
+}
+
+.btn-lg {
+    width: 15rem !important;
+    height: 15rem !important;
+    font-size: 2.125rem;
+}
+
+.btn-lg-video {
+    width: 100% !important;    
+    font-size: 4rem;
+}
+
+.btn-block2 {
+    height: 7rem !important;
+    width: 20rem !important;
+    font-size: 2.8rem;
+}
+
+.form-horizontal {
+    margin-top: 2rem;  
+}
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+
+    .parrafo {
+        font-size: 1.8rem;
+    }
+
+    .aiia-wizard-step-title-text {
+        font-size: 3rem !important;
+    }
+  
+    .nav {
+        display: none;
+    }
+
+    
+}
+
+/* Smartphones (landscape) ----------- */
+@media only screen 
+and (min-width : 321px) {
+    
+    .parrafo {
+        font-size: 1.8rem;
+    }
+
+    .aiia-wizard-step-title-text {
+        font-size: 3rem !important;
+    }
+  
+    
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen 
+and (min-width : 320px) {
+
+    .parrafo {
+        font-size: 1.8rem;
+    }
+
+    .aiia-wizard-step-title-text {
+        font-size: 3rem !important;
+    }
+  
+  
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) {
+
+    .parrafo {
+        font-size: 1.8rem;
+    }
+
+    .aiia-wizard-step-title-text {
+        font-size: 3rem !important;
+    }
+  
+}
+
+/* iPads (landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : landscape) {
+
+    .parrafo {
+        font-size: 1.8rem;
+    }
+
+    .aiia-wizard-step-title-text {
+        font-size: 3rem !important;
+    }
+  
+  
+}
+
+/* iPads (portrait) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : portrait) {
+
+    .parrafo {
+        font-size: 1.8rem;
+    }
+
+    .aiia-wizard-step-title-text {
+        font-size: 3rem !important;
+    }
+  
+}
+
+
+@media only screen 
+and (min-device-width : 360px) 
+and (max-device-width : 640px) 
+and (orientation : portrait) {
+
+    .parrafo {
+        font-size: 1.8rem;
+    }
+
+    .aiia-wizard-step-title-text {
+        font-size: 3rem !important;
+    }
+  
+    .nav {
+        display: none;
+    }
+}
+
+
+/* Desktops and laptops ----------- */
+@media only screen 
+and (min-width : 1224px) {
+    
+    
+
+}
+
+/* Large screens ----------- */
+@media only screen 
+and (min-width : 1824px) {
+  
+   
+
+}
+
+
+/* ----------- iPad Pro ----------- */
+/* Portrait and Landscape */
+@media only screen 
+  and (min-width: 1024px) 
+  and (max-height: 1366px) 
+  and (-webkit-min-device-pixel-ratio: 1.5) {
+
+  
+}
+
+/* Portrait */
+@media only screen 
+  and (min-width: 1024px) 
+  and (max-height: 1366px) 
+  and (orientation: portrait) 
+  and (-webkit-min-device-pixel-ratio: 1.5) {
+
+   
+}
+
+/* Landscape */
+@media only screen 
+  and (max-height: 1366px) 
+  and (min-width: 1024px) 
+  and (orientation: landscape) 
+  and (-webkit-min-device-pixel-ratio: 1.5) {
+  
+
+}
