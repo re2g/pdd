@@ -16,7 +16,7 @@
         <link rel='stylesheet' href='css/accordion.css'>
 
         <script src="js/modernizr-2.8.3.min.js"></script>        
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <script src="js/jquery-3.4.1.min.js"></script>
         <script src="js/bootstrap.min.js" id="rendered-js"></script>
 
 
@@ -49,43 +49,16 @@
     </head>
 
     <body translate="no">
+        <div class="overlay">
+            <div class="spinner">
+                <div class="sp sp-wave"></div>
+                <h5 class="spinner-text">Subiendo</h5>
+            </div>
+          </div>
         <form class="form-horizontal" id="formData" name="formData">            
             <div class="container-fluid">
                 <div id="wizard" class="aiia-wizard" style="display: none;">
                     <input type="hidden" id="id" name="id">
-                    <!-- <div class="aiia-wizard-step">
-                        <h1>Identificación</h1>
-                        <div class="step-content">
-                            <div class="block">
-                                <div class="col-md-10 col-md-offset-1">
-                                    <p>Digite su documento de identidad</p>
-                                    <div class="form-group">
-                                        <div class="col-md-8 col-md-offset-2">
-                                            <input type="hidden" id="id" name="id">
-                                            <input type="text" aria-haspopup="true" role="textbox"
-                                                class="form-control alignRight ui-keyboard-input ui-widget-content ui-corner-all ui-keyboard-autoaccepted"
-                                                required id="identificacion" name="identificacion" placeholder="Documento de identidad..."><br />
-                                        </div>                                        
-                                        <div class="col-md-4 col-md-offset-4" id="btnConsulta">
-                                            <button type="button" onclick="ConsultarCiudadano()"
-                                                class="btn btn-info btn-lg btn-block btn-big">Consultar</button>
-                                        </div>
-                                        <div id="nomciudadano" style="display: none;">
-                                            <div class="col-md-8 col-md-offset-2">                                         
-                                                <input type="text" aria-haspopup="true" role="textbox"
-                                                        class="form-control alignRight ui-keyboard-input ui-widget-content ui-corner-all ui-keyboard-autoaccepted"
-                                                        required id="nombre" name="nombre" placeholder="Digite su nombre y apellido..."><br />
-                                            </div>  
-                                            <div class="col-md-4 col-md-offset-4">
-                                                <button type="button" onclick="ValidaNombre()"
-                                                            class="btn btn-success btn-lg btn-block btn-big">Continuar</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
                     <div class="aiia-wizard-step" id="paso1">
                         <h1>Ejes programáticos</h1>
                         <div class="step-content">
@@ -394,8 +367,7 @@
                                         <div style="text-align: center;">
                                             <button id="save-to-disk"  style="display: none;">Save To Disk</button>
                                             <button id="open-new-tab"  style="display: none;">Open New Tab</button>
-                                            <button id="upload-to-server" class="btn btn-warning btn-lg-video" style="display: none;">Enviar video</button>
-                                            <input type="hidden" id="video" name="video">
+                                             <input type="hidden" id="video" name="video">
                                         </div>                                                                                           
                                     </div>
                                     <div class="form-group col-md-12 text-center">
@@ -476,6 +448,19 @@
         <script src="js/wizarddom.js" id="rendered-js"></script>
         <script src="js/video.js" id="rendered-js"></script>
         <script>
+            const baseURL = "http://127.0.0.1:8000/api"
+            const form = $("#formData")
+            const overlay = $(".overlay")
+
+            function toogleOverlay(showOverlay=true){
+                console.log(showOverlay)
+                overlay.css("display", showOverlay? "block": "none")
+            }
+
+            function setOverlayText(text){
+                $(".spinner .spinner-text").text(text)
+            }
+
             function verForm() {
                 $("#botones").toggle();
                 $("#formulario").toggle();
@@ -497,6 +482,51 @@
                 console.log('inicio')                       
                 location.href='index.html';
             }
+
+            function crearProposicion(formData) {
+                return fetch(baseURL+"/proposiciones", {  method: "post", body: formData }).then(res=> res.json())
+            }
+
+            function actualizarProposicion(id, formData){
+                console.log(id)
+                if(!id){
+                    alert("No se encontró la identificación del registro")
+                    location.href="index.html"
+                }
+                return fetch(baseURL+"/proposiciones/"+id, {  method: "put", body: JSON.stringify(formData), headers: {
+                    "Content-Type": "application/json"
+                } }).then(res=> res.json())
+
+            }
+
+            function makeFormData(formValue){
+                const formData = new FormData();
+                formData.append("problema",  formValue.find(el=> el.name==="problema").value);
+                formData.append("solucion",  formValue.find(el=> el.name==="solucion").value)
+                formData.append("ejes", formValue.find(el=> el.name==="ejes").value)
+                return formData
+            }
+
+
+        function makeUpdateFormData(formValue){
+            const identificacion =formValue.find(el=> el.name==="identificacion")
+            const nombre =formValue.find(el=> el.name==="nombre")
+            const email = formValue.find(el=> el.name==="email")
+            const telefono =  formValue.find(el=> el.name==="telefono")
+            return {
+                identificacion: identificacion? identificacion.value: undefined, 
+                nombre: nombre? nombre.value: undefined, 
+                email: email? email.value: undefined, 
+                telefono: telefono? telefono.value: undefined
+            }
+        }
+
+        function makeBlobFormData(blob, formValue){
+            const formData = new FormData();
+            formData.append("attach", blob);
+            formData.append("ejes", formValue.find(el=> el.name==="ejes").value)
+            return formData
+        }
 
             function ConsultarCiudadano() {
                 if($("#identificacion").val()=='') {
@@ -534,15 +564,16 @@
                     alert('Debe diligenciar al menos uno de los dos campos, ya sea el correo o el teléfono de contacto.')
                     return false;
                 } else {
-                    $.post("salvarform.php", $("#formData").serialize(), function( data ) {                                                        
-                        console.log('Guarda email y teléfono');
-                    });
-                    
-                    $.post("PHPMailer/mail.php", $("#formData").serialize(), function( data ) {                                                        
-                        console.log('Envía email');
+                    const id =  $("#id").val()
+                    console.log("La id es "+id)
+                    const formData = makeUpdateFormData(form.serializeArray())
+                    const res = actualizarProposicion(id, formData).then(response=>{
+                        console.log(JSON.stringify(response))
                         location.href='index.html'
-                        //Final()
-                    });                 
+                    }).catch(err=>{
+                        console.error(err)
+                        alert("Sucedio un error al actualizar los datos, intentelo más tarde")
+                    })
                 }
             }
 
@@ -569,22 +600,18 @@
                         alert('Debe digitar su sugerencia para subsanar el problema.')
                         return false;
                     } else {
-                        $.post("salvarform.php", $("#formData").serialize(), function( data ) {       
-                            console.log('id form: '+data['id']);                                            
-                            $("#id").val(data['id']);
-                        });                        
-                        Proximo()
+                        const formData = makeFormData(form.serializeArray())
+                        const res = crearProposicion(formData).then(response=>{
+                            $("#id").val(response.id)
+                            Proximo()
+                        }).catch(err=>{
+                            console.error(err)
+                            alert("Sucedio un error al registrar los datos, intentelo de nuevo: "+ JSON.stringify(err))
+                        })
                     }
                 }
             }
 
-            function GuardarDatosVideo() { 
-                console.log('GuardarDatosVideo')              
-                $.post("salvarform.php", $("#formData").serialize(), function( data ) {
-                    $("#id").val(data['id']);
-                });                        
-                Proximo()
-            }
         </script>
     </body>
 
