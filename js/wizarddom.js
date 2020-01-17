@@ -1,7 +1,7 @@
 $(document).ready(function () {
   
     $("#wizard").aiiaWizard();    
-    /* $('#identificacion').keyboard({
+     $('#identificacion').keyboard({
       layout: 'custom',
       usePreview: false,
       customLayout: {
@@ -22,7 +22,7 @@ $(document).ready(function () {
     
     //TECLADO PARA NOMBRE CUANDO NO HAY DATOS
     $('#nombre').keyboard({
-      language: 'Espa\u00f1ol (Spanish)',
+      layout: 'alpha',      
       display : {
         'a'      : '\u2714:Aceptar (Cambio+Inscribir)', // check mark - same action as accept
         'accept' : 'Aceptar:Aceptar (Cambio+Inscribir)',
@@ -43,47 +43,17 @@ $(document).ready(function () {
         'space'  : '&nbsp;:Espacio',
         't'      : '\u21e5:Tab',          // right arrow to bar (used since this virtual keyboard works with one directional tabs)
         'tab'    : '\u21e5 Tab:Tab'       // \u21b9 is the true tab symbol (left & right arrows)
-      },
-      deadKeys : { '^' : { a : "â" } },
+      },      
       wheelMessage : 'Utilice la rueda del mouse para ver otras teclas',
-      layout: 'custom',
-      usePreview: false,
-      restrictInput : true, // Prevent keys not in the displayed keyboard from being typed in
+      usePreview: false,   
       preventPaste : false,  // prevent ctrl-v and right click
       autoAccept : true,
-      customLayout: {
-        'normal': [
-            '` 1 2 3 4 5 6 7 8 9 0 - = {bksp}',
-            '{tab} q w e r t y u i o p [ ] \\',
-            '{combo} a s d f g h j k l ñ ; \´ {enter}',
-            '{shift} z x c v b n m , . / {shift}',
-            '{left} {right} {space} {accept}'
-        ],
-        'shift': [
-            '~ ! @ # $ % ^ & * ( ) _ + {bksp}',
-            '{tab} Q W E R T Y U I O P { } |',
-            'A S D F G H J K L Ñ : " {enter}',
-            '{shift} Z X C V B N M < > ? {shift}',
-            '{left} {right} {space} {accept}'
-        ]
-    },
-		// Added here as an example on how to add combos
-		combos : {
-			'a' : { e: '\u00e6' },
-			'A' : { E: '\u00c6' }
-		},
-    }).addCaret({		
-    caretClass : '',	
-    charAttr   : 'data-character',		
-    charIndex  : 1,		
-    offsetX    : 0,
-    offsetY    : 0
     }).addTyping();
     //FIN TECLADO NOMBRE
 
 
-    $('#problema').keyboard({
-      language: 'Espa\u00f1ol (Spanish)',
+    $('#problema').keyboard({ 
+      layout: 'alpha',      
       display : {
         'a'      : '\u2714:Aceptar (Cambio+Inscribir)', // check mark - same action as accept
         'accept' : 'Aceptar:Aceptar (Cambio+Inscribir)',
@@ -104,45 +74,16 @@ $(document).ready(function () {
         'space'  : '&nbsp;:Espacio',
         't'      : '\u21e5:Tab',          // right arrow to bar (used since this virtual keyboard works with one directional tabs)
         'tab'    : '\u21e5 Tab:Tab'       // \u21b9 is the true tab symbol (left & right arrows)
-      },
-      deadKeys : { '^' : { a : "â" } },
+      },      
       wheelMessage : 'Utilice la rueda del mouse para ver otras teclas',
-      layout: 'custom',
-      usePreview: false,
-      restrictInput : true, // Prevent keys not in the displayed keyboard from being typed in
+      usePreview: false,   
       preventPaste : false,  // prevent ctrl-v and right click
       autoAccept : true,
-      customLayout: {
-        'normal': [
-            '` 1 2 3 4 5 6 7 8 9 0 - = {bksp}',
-            '{tab} q w e r t y u i o p [ ] \\',
-            '{combo} a s d f g h j k l ñ ; \´ {enter}',
-            '{shift} z x c v b n m , . / {shift}',
-            '{left} {right} {space} {accept}'
-        ],
-        'shift': [
-            '~ ! @ # $ % ^ & * ( ) _ + {bksp}',
-            '{tab} Q W E R T Y U I O P { } |',
-            'A S D F G H J K L Ñ : " {enter}',
-            '{shift} Z X C V B N M < > ? {shift}',
-            '{left} {right} {space} {accept}'
-        ]
-    },
-		// Added here as an example on how to add combos
-		combos : {
-			'a' : { e: '\u00e6' },
-			'A' : { E: '\u00c6' }
-		},
-    }).addCaret({		
-    caretClass : '',	
-    charAttr   : 'data-character',		
-    charIndex  : 1,		
-    offsetX    : 0,
-    offsetY    : 0
-    }).addTyping();
+    })
+	.addTyping();
     
     $('#solucion').keyboard({
-      language: 'Espa\u00f1ol (Spanish)',
+      layout: 'alpha',      
       display : {
         'a'      : '\u2714:Aceptar (Cambio+Inscribir)', // check mark - same action as accept
         'accept' : 'Aceptar:Aceptar (Cambio+Inscribir)',
@@ -163,42 +104,12 @@ $(document).ready(function () {
         'space'  : '&nbsp;:Espacio',
         't'      : '\u21e5:Tab',          // right arrow to bar (used since this virtual keyboard works with one directional tabs)
         'tab'    : '\u21e5 Tab:Tab'       // \u21b9 is the true tab symbol (left & right arrows)
-      },
-      deadKeys : { '^' : { a : "â" } },
+      },      
       wheelMessage : 'Utilice la rueda del mouse para ver otras teclas',
-      layout: 'custom',
-      usePreview: false,
-      restrictInput : true, // Prevent keys not in the displayed keyboard from being typed in
+      usePreview: false,   
       preventPaste : false,  // prevent ctrl-v and right click
       autoAccept : true,
-      customLayout: {
-        'normal': [
-            '` 1 2 3 4 5 6 7 8 9 0 - = {bksp}',
-            '{tab} q w e r t y u i o p [ ] \\',
-            '{combo} a s d f g h j k l ñ ; \' {enter}',
-            '{shift} z x c v b n m , . / {shift}',
-            '{left} {right} {space} {accept}'
-        ],
-        'shift': [
-            '~ ! @ # $ % ^ & * ( ) _ + {bksp}',
-            '{tab} Q W E R T Y U I O P { } |',
-            'A S D F G H J K L Ñ : " {enter}',
-            '{shift} Z X C V B N M < > ? {shift}',
-            '{left} {right} {space} {accept}'
-        ]
-    },
-		// Added here as an example on how to add combos
-		combos : {
-			'a' : { e: '\u00e6' },
-			'A' : { E: '\u00c6' }
-		},
-    }).addCaret({		
-    caretClass : '',	
-    charAttr   : 'data-character',		
-    charIndex  : 1,		
-    offsetX    : 0,
-    offsetY    : 0
-    }).addTyping(); */
+    }).addTyping(); 
 }); 
 
 ;(function ($, window, document, undefined) {

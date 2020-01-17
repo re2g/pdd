@@ -3,6 +3,11 @@
     border-color: rgb(201, 76, 76);
   } 
  */
+
+ body {
+    height: calc(100% - 4%);
+	width: calc(100% - 4%);
+ }
 .template_faq {
     background: #edf3fe none repeat scroll 0 0;
 }
@@ -19,7 +24,7 @@
 }
 
 #accordion {
-    height:900px;
+    height: 1450px;
 }
 
 #videocam {
@@ -93,7 +98,6 @@
     border-left: 1px dashed #8c8c8c;
     padding-left: 25px;
 }
-
 
 .step-content {
     margin-top: 1.5rem;

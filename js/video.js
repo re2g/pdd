@@ -500,7 +500,7 @@ var recordingDIV = document.querySelector('.recordrtc');
                 console.info('Esta demostración de RecordRTC simplemente intenta reproducir la sincronización de audio / video dentro del navegador. Todavía genera dos archivos separados (WAV / WebM).');
             }
 
-            var MY_DOMAIN = 'https://facundocastillo.com.co/m';
+            var MY_DOMAIN = 'https://pdd.arauca.gov.co/';
 
             function isMyOwnDomain() {
                 // replace "webrtc-experiment.com" with your own domain name

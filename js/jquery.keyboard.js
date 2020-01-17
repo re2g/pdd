@@ -2741,16 +2741,16 @@ http://www.opensource.org/licenses/mit-license.php
 			'normal': [
 				'` 1 2 3 4 5 6 7 8 9 0 - = {bksp}',
 				'{tab} a b c d e f g h i j [ ] \\',
-				'k l m n o p q r s ; \' {enter}',
+				'k l m n o p q r s ñ ; \' {enter}',
 				'{shift} t u v w x y z , . / {shift}',
-				'{accept} {space} {cancel}'
+				'{left} {right} {space} {accept}'
 			],
 			'shift': [
 				'~ ! @ # $ % ^ & * ( ) _ + {bksp}',
 				'{tab} A B C D E F G H I J { } |',
-				'K L M N O P Q R S : " {enter}',
+				'K L M N O P Q R S Ñ : " {enter}',
 				'{shift} T U V W X Y Z < > ? {shift}',
-				'{accept} {space} {cancel}'
+				'{left} {right} {space} {accept}'
 			]
 		},
 		'qwerty': {
